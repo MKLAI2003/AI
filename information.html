@@ -98,17 +98,19 @@
                                 Data Collection
                             </h3>
                             <p>
-                                There is introduction description!!!!!!!!!!!!!!
-
-                               
+                                Data were downloaded from CCTX library, an open-source digital currency trading framework, it encapsulates most of the exchange APIs in the world. <br>
+                                We are choosing API from Binance, a global cryptocurrency exchange, for the data resource. <br><br>
+                                We were collected in the pandas dataframe format by using python programming language, which gives us the price variation in a given time period in terms of 
+                                Open, Close, High, and Low Price, Volume of bitcoin. <br><br>
+                                The assets were all those OCHLV of BTC/USDT from 17 August, 2017 to 29 November, 2023 , In Figure on the right side, We obtained of 2296 sample with the distribution. 
                             </p>
                             
                         </div>
                     </div>
                     <div class="col-sm-offset-1 col-sm-5">
                         <div>
-                            <img src="assets/images/information/API.jpg" alt="API">
-                            <p> The <b>CCXT library</b> currently supports the following <b>95</b> cryptocurrency exchange markets and trading APIs.</p>
+                            <img width="70%" src="assets/images/information/dtCollect1.png" alt="Data Collect">
+                            <img width="67%" src="assets/images/information/dtCollect2.png" alt="Data Collect">
                         </div>
 
                     </div>
@@ -119,7 +121,7 @@
 
     <section id="2" class="about">
         <div class="section-heading text-center">
-            <h2>Step 2: Feature Selection</h2>
+            <h2>Step 2: Feature Extraction</h2>
         </div>
         <div class="container">
             <div class="about-content">
@@ -127,12 +129,14 @@
                     <div class="col-sm-6">
                         <div class="single-about-txt">
                             <h3>
-                                Feature Selection
+                                Feature Extraction
                             </h3>
                             <p>
+                                Feature extraction is important for machine learning models in cryptocurrency trading.<br><br>
+                                Technical indicators like EMA crossovers and Z-Scores help detect market behavior and determine investment worthiness.<br><br>
+                                The model was trained using EMA crossovers and WMA150, and later added Z-Scores to improve accuracy.<br><br>
+                                The accuracy score was then evaluated.
                                 
-
-                               
                             </p>
                             
                         </div>
@@ -150,7 +154,8 @@
     </section>
     <section id="3" class="about">
         <div class="section-heading text-center">
-            <h2>Step 3: Data Preprocessing</h2>   
+            <h2>Step 3: Data Preprocessing</h2>
+        </div>
         <div class="container">
             <div class="about-content">
                 <div class="row">
@@ -160,9 +165,17 @@
                                 Data Preprocessing
                             </h3>
                             <p>
-                                There is introduction description!!!!!!!!!!!!!!
-
-                               
+                                Calculate the value of EMA5, EMA30 and WMA150<br><br>
+                                EMA5 will take the target of 5 previous days.<br>
+                                EMA30 takes 30 the previous day.<br>
+                                WMA150 is 150 the previous day and is close to the variable x, so we predict the target y.<br>
+                                Bullish=1<br>
+                                Bearish=0<br><br>
+                                Whether the market is bullish or bearish, if the close price is larger than WMA150 and EMA5 larger than EMA30, it should be bullish. 
+                                Otherwise, it should be bearish.<br><br>
+                                Next, all incorrect data will be removed from the dataset during data cleaning and deleted 'nan' values. 
+                                We created a new column called "predict_Y" based on x. <br><br>
+                                Lastly, feature scaling was applied to normalize EMA5, EMA30, and WMA150 to prevent bias and ensure that all features contribute equally.<br><br>
                             </p>
                             
                         </div>
@@ -191,17 +204,28 @@
                                 Model Training
                             </h3>
                             <p>
-                                There is introduction description!!!!!!!!!!!!!!
-
-                               
+                                The algorithm will create multiple decision trees using the training dataset.<br><br>
+                                Each decision tree is built independently of the others.<br><br>
+                                New input is passed through each decision tree and processed from the root node down based on the conditions specified by the features at each node.<br><br>
+                                The final prediction is determined by aggregating the predictions from all the decision trees.<br><br>
+                                The majority prediction is selected as the final result.<br><br>
+                                The result of our model is shown on the right side.
                             </p>
                             
                         </div>
                     </div>
                     <div class="col-sm-offset-1 col-sm-5">
                         <div>
-                            <img src="assets/images/information/API.jpg" alt="API">
-                            <p> The <b>CCXT library</b> currently supports the following <b>95</b> cryptocurrency exchange markets and trading APIs.</p>
+                            <p> Model use <b>WMA150</b> and <b>EMA5&30</b></p>
+                            <img width="45%" src="assets/images/information/res1.png" alt="res"><img width="55%" src="assets/images/information/res2.png" alt="res">
+                            <p>Confusion Matrix&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbspFeature Importance</p>
+                            
+                            <br><br>
+                            <p> Model use <b>WMA150</b>, <b>EMA5&30</b>, and <b>MVRV Z-Score</b></p>
+                            <img width="45%" src="assets/images/information/res3.png" alt="res"><img width="55%" src="assets/images/information/res4.png" alt="res">
+                            <p>Confusion Matrix&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbspFeature Importance</p>
                         </div>
 
                     </div>
@@ -219,20 +243,23 @@
                     <div class="col-sm-6">
                         <div class="single-about-txt">
                             <h3>
-                                Data Collection
+                                Backtesting
                             </h3>
                             <p>
-                                There is introduction description!!!!!!!!!!!!!!
-
-                               
+                                Keeping up-to-date with investment strategies is time-consuming.<br><br>
+                                Backtesting can simulate how a strategy would have performed in the past.<br><br>
+                                With AI training, the Sharpe ratio of a strategy can be improved.<br><br>
+                                A higher Sharpe ratio indicates better risk-adjusted performance.<br><br>
+                                The AI model used vectorbt, a Python library for quantitative analysis.<br><br>
+                                The vectorbt API allows for backtesting and analysis of market trends and developments.<br><br>
                             </p>
                             
                         </div>
                     </div>
                     <div class="col-sm-offset-1 col-sm-5">
                         <div>
-                            <img src="assets/images/information/API.jpg" alt="API">
-                            <p> The <b>CCXT library</b> currently supports the following <b>95</b> cryptocurrency exchange markets and trading APIs.</p>
+                            <img width="100%" src="assets/images/information/backtesting1.png" alt="res"><br>
+                            <img width="100%" src="assets/images/information/backtesting2.png" alt="res">
                         </div>
 
                     </div>
@@ -250,20 +277,31 @@
                     <div class="col-sm-6">
                         <div class="single-about-txt">
                             <h3>
-                                Data Collection
+                                The Technical Indicators
                             </h3>
                             <p>
-                                There is introduction description!!!!!!!!!!!!!!
-
-                               
+                                In EMA5, EMA30 and WMA150:<br><br>
+                                If the Bitcoin close price is bigger than WMA150 and EMA5 bigger than EMA30, then the market is bullish. 
+                                Otherwise the market is bearish.<br><br>
+                                In SVM:<br><br>
                             </p>
                             
                         </div>
                     </div>
                     <div class="col-sm-offset-1 col-sm-5">
                         <div>
-                            <img src="assets/images/information/API.jpg" alt="API">
-                            <p> The <b>CCXT library</b> currently supports the following <b>95</b> cryptocurrency exchange markets and trading APIs.</p>
+                            <p> Model use <b>WMA150</b> and <b>EMA5&30</b></p>
+                            <img width="50%" src="assets/images/information/noZ.png" alt="res"><img width="50%" src="assets/images/information/noZ2.png" alt="res">
+                            <p>Orders&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbspCumulative Returns</p>
+                            
+                            <br><br>
+                            <p> Model use <b>WMA150</b>, <b>EMA5&30</b>, with <b>MVRV Z-Score</b></p>
+                            <img width="50%" src="assets/images/information/withZ.png" alt="res"><img width="50%" src="assets/images/information/withZ2.png" alt="res">
+                            <p>Orders&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbspCumulative Returns</p>
                         </div>
 
                     </div>
@@ -273,7 +311,7 @@
     </section>
     <section id="7" class="about">
         <div class="section-heading text-center">
-            <h2>Step 7: Automate Trading (In Progress)</h2>
+            <h2>Step 7: Automate Trading</h2>
         </div>
         <div class="container">
             <div class="about-content">
@@ -281,12 +319,10 @@
                     <div class="col-sm-6">
                         <div class="single-about-txt">
                             <h3>
-                                Data Collection
+                                Automate Trading
                             </h3>
                             <p>
-                                There is introduction description!!!!!!!!!!!!!!
-
-                               
+                                We still in progress.
                             </p>
                             
                         </div>
@@ -302,13 +338,65 @@
             </div>
         </div>
     </section>
+    <section id="contact" class="contact">
+		<div class="section-heading text-center">
+			<h2>About Us</h2>
+		</div>
+		<div class="container">
+			<div class="contact-content">
+				<div class="row">
+					<div class="col-md-offset-1 col-md-5 col-sm-6">
+						<div class="single-contact-box">
+							<div class="contact-adress">
+								<div class="contact-add-head">
+									<h4>Kong Kam Ling</h4>
+									<p> Senior Bit Coin investor</p>
+								</div>
+							</div><!--/.contact-adress-->
+						</div><!--/.single-contact-box-->
+					</div><!--/.col-->
+					<div class="col-md-offset-1 col-md-5 col-sm-6">
+						<div class="single-contact-box">
+							<div class="contact-adress">
+								<div class="contact-add-head">
+									<h4>Lai Ming Kei</h4>
+									<p> Senior Bit Coin investor</p>
+								</div>
+							</div><!--/.contact-adress-->
+						</div><!--/.single-contact-box-->
+					</div><!--/.col-->
+					<div class="col-md-offset-1 col-md-5 col-sm-6">
+						<div class="single-contact-box">
+							<div class="contact-adress">
+								<div class="contact-add-head">
+									<h4>Ng Dzi Fan</h4>
+									<p> Senior Bit Coin investor</p>
+								</div>
+							</div><!--/.contact-adress-->
+						</div><!--/.single-contact-box-->
+					</div><!--/.col-->
+					<div class="col-md-offset-1 col-md-5 col-sm-6">
+						<div class="single-contact-box">
+							<div class="contact-adress">
+								<div class="contact-add-head">
+									<h4>So Chi Wang</h4>
+									<p> Senior Bit Coin investor</p>
+								</div>
+							</div><!--/.contact-adress-->
+						</div><!--/.single-contact-box-->
+					</div><!--/.col-->
+				</div><!--/.row-->
+			</div><!--/.contact-content-->
+		</div><!--/.container-->
+
+	</section><!--/.contact-->
 
     <!--footer-copyright start-->
     <footer id="footer-copyright" class="footer-copyright">
         <div class="container">
             <div class="hm-footer-copyright text-center">
                 <p>
-                    Design and developed by Group 1
+                    GE2340 - Course Project - 2023/2024 Semester A 
             </div><!--/.text-center-->
         </div><!--/.container-->
 
