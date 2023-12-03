@@ -54,7 +54,7 @@
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="index.html">GE2340 Project</a>
+                        <a class="navbar-brand" href="index.html">CryptoBitcoin</a>
                     </div><!--/.navbar-header-->
                     <!-- End Header Navigation -->
 
@@ -69,7 +69,7 @@
                             <li class="smooth-menu"><a href="#5">5</a></li>
                             <li class="smooth-menu"><a href="#6">6</a></li>
                             <li class="smooth-menu"><a href="#7">7</a></li>
-                            <li><a style=" color: red" href="index.html#portfolio">Back</a></li>
+                            <li><a style=" color: green" href="index.html#portfolio">Back</a></li>
                         </ul><!--/.nav -->
                     </div><!-- /.navbar-collapse -->
                 </div><!--/.container-->
@@ -143,8 +143,7 @@
                     </div>
                     <div class="col-sm-offset-1 col-sm-5">
                         <div>
-                            <img src="assets/images/information/API.jpg" alt="API">
-                            <p> The <b>CCXT library</b> currently supports the following <b>95</b> cryptocurrency exchange markets and trading APIs.</p>
+                            <img src="assets/images/information/a.png" alt="API">
                         </div>
 
                     </div>
@@ -182,8 +181,11 @@
                     </div>
                     <div class="col-sm-offset-1 col-sm-5">
                         <div>
-                            <img src="assets/images/information/API.jpg" alt="API">
-                            <p> The <b>CCXT library</b> currently supports the following <b>95</b> cryptocurrency exchange markets and trading APIs.</p>
+                            <p>Before data cleaning</p>
+                            <img width="80%" src="assets/images/information/nclean.png" alt="API">
+                            <br><br>
+                            <p>After data cleaning</p>
+                            <img width="80%" src="assets/images/information/clean.png" alt="API">
                         </div>
 
                     </div>
@@ -204,28 +206,55 @@
                                 Model Training
                             </h3>
                             <p>
-                                The algorithm will create multiple decision trees using the training dataset.<br><br>
-                                Each decision tree is built independently of the others.<br><br>
-                                New input is passed through each decision tree and processed from the root node down based on the conditions specified by the features at each node.<br><br>
-                                The final prediction is determined by aggregating the predictions from all the decision trees.<br><br>
-                                The majority prediction is selected as the final result.<br><br>
-                                The result of our model is shown on the right side.
+                                <b>Random Forest(RF) Model:</b><br>
+                                The algorithm will create multiple decision trees using the training dataset.<br>
+                                Each decision tree is built independently of the others.<br>
+                                New input is passed through each decision tree and processed from the root node down based on the conditions specified by the features at each node.<br>
+                                The final prediction is determined by aggregating the predictions from all the decision trees.<br>
+                                The majority prediction is selected as the final result.<br>
+                                The result of our model is shown on the right side.<br><br>
+                                <b>Long-Short Term Machine(LSTM) Model:</b><br>
+                                This model shows the price to users<br>
+                                LSTM is a neural network that predicts stock market prices.<br>
+                                2-layers LSTM model is used for the project.<br>
+                                The model uses 100 days of stock prices to predict the next lookup time step of 15 days.<br>
+                                The training and testing sets are split by date.<br>
+                                The result shows that LSTM has high trend prediction accuracy, which helps users make decisions for trading operations.<br><br>
+                                <b>Support Vector Machine(SVM) Model:</b><br>
+                                This model tells user buy or not<br>
+                                SVM model can be used for profit prediction in trade trend.<br>
+                                SVM provides a more concise view of trading operations compared to LSTM.<br>
+                                SVM algorithm is not suitable for large data sets, but still provides good results.<br>
+                                The model has an accuracy of around 50% in test data.<br>
+                                The buy or sell signals, daily returns, strategy returns, cumulative and strategy cumulative returns can be predicted.<br>
+                                The model did a good job overall in predicting the buy or sell signals and the returns.
                             </p>
                             
                         </div>
                     </div>
                     <div class="col-sm-offset-1 col-sm-5">
                         <div>
-                            <p> Model use <b>WMA150</b> and <b>EMA5&30</b></p>
+                            <p>RF Model use <b>WMA150</b> and <b>EMA5&30</b></p>
                             <img width="45%" src="assets/images/information/res1.png" alt="res"><img width="55%" src="assets/images/information/res2.png" alt="res">
                             <p>Confusion Matrix&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbspFeature Importance</p>
                             
                             <br><br>
-                            <p> Model use <b>WMA150</b>, <b>EMA5&30</b>, and <b>MVRV Z-Score</b></p>
+                            <p>RF Model use <b>WMA150</b>, <b>EMA5&30</b>, and <b>MVRV Z-Score</b></p>
                             <img width="45%" src="assets/images/information/res3.png" alt="res"><img width="55%" src="assets/images/information/res4.png" alt="res">
                             <p>Confusion Matrix&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbspFeature Importance</p>
+                            
+                            <br><br>
+                            <p>LSTM Model</p>
+                            <img width="45%" src="assets/images/information/LSTM.png" alt="res">
+                            <p>Predict result</p>
+
+                            <br><br>
+                            <p>SVM Model</p>
+                            <img width="50%" src="assets/images/information/svm1.png" alt="res"><img width="50%" src="assets/images/information/svm2.png" alt="res">
+                            <p>Confusion Matrix&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPredict result</p>
                         </div>
 
                     </div>
@@ -258,6 +287,7 @@
                     </div>
                     <div class="col-sm-offset-1 col-sm-5">
                         <div>
+                            <p>Result of backtesting:</p>
                             <img width="100%" src="assets/images/information/backtesting1.png" alt="res"><br>
                             <img width="100%" src="assets/images/information/backtesting2.png" alt="res">
                         </div>
@@ -283,7 +313,6 @@
                                 In EMA5, EMA30 and WMA150:<br><br>
                                 If the Bitcoin close price is bigger than WMA150 and EMA5 bigger than EMA30, then the market is bullish. 
                                 Otherwise the market is bearish.<br><br>
-                                In SVM:<br><br>
                             </p>
                             
                         </div>
@@ -322,6 +351,7 @@
                                 Automate Trading
                             </h3>
                             <p>
+                                Implement a AI bot to automate the trading process, the optimization of the model, real-time use the binance API trade bitcoin.<br>
                                 We still in progress.
                             </p>
                             
@@ -329,8 +359,7 @@
                     </div>
                     <div class="col-sm-offset-1 col-sm-5">
                         <div>
-                            <img src="assets/images/information/API.jpg" alt="API">
-                            <p> The <b>CCXT library</b> currently supports the following <b>95</b> cryptocurrency exchange markets and trading APIs.</p>
+                            <img src="assets/images/portfolio/at.png" alt="API">
                         </div>
 
                     </div>
@@ -350,7 +379,7 @@
 							<div class="contact-adress">
 								<div class="contact-add-head">
 									<h4>Kong Kam Ling</h4>
-									<p> Senior Bit Coin investor</p>
+									<p> Senior BitCoin trader</p>
 								</div>
 							</div><!--/.contact-adress-->
 						</div><!--/.single-contact-box-->
@@ -360,7 +389,7 @@
 							<div class="contact-adress">
 								<div class="contact-add-head">
 									<h4>Lai Ming Kei</h4>
-									<p> Senior Bit Coin investor</p>
+									<p> Master BitCoin trader</p>
 								</div>
 							</div><!--/.contact-adress-->
 						</div><!--/.single-contact-box-->
@@ -370,7 +399,7 @@
 							<div class="contact-adress">
 								<div class="contact-add-head">
 									<h4>Ng Dzi Fan</h4>
-									<p> Senior Bit Coin investor</p>
+									<p> Junior BitCoin trader</p>
 								</div>
 							</div><!--/.contact-adress-->
 						</div><!--/.single-contact-box-->
@@ -380,7 +409,7 @@
 							<div class="contact-adress">
 								<div class="contact-add-head">
 									<h4>So Chi Wang</h4>
-									<p> Senior Bit Coin investor</p>
+									<p> Senior BitCoin trader</p>
 								</div>
 							</div><!--/.contact-adress-->
 						</div><!--/.single-contact-box-->
@@ -390,7 +419,6 @@
 		</div><!--/.container-->
 
 	</section><!--/.contact-->
-
     <!--footer-copyright start-->
     <footer id="footer-copyright" class="footer-copyright">
         <div class="container">
